@@ -9,10 +9,6 @@
             color: black;
             margin: 0;
             padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
             font-family: Arial, sans-serif;
         }
         
@@ -20,6 +16,8 @@
             width: 80%;
             max-width: 600px;
             text-align: left;
+            margin: 0 auto;
+            padding: 20px;
         }
         
         .back-link {
@@ -30,9 +28,24 @@
             text-decoration: none;
         }
 
+        .book-section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .book-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
         @media only screen and (max-width: 600px) {
             .content {
                 width: 90%;
+            }
+
+            .book-section {
+                padding: 10px;
             }
         }
     </style>
@@ -54,9 +67,9 @@
         <p>wearing cute sticky panties</p>
         <p>soaked in arizona iced tea.</p>
     </div>
-    <div>
-                <img src="split.png" alt="Split Image" style="width: 333px; height: auto;">
-         <p>first book is coming soon :)</p>
+    <div class="book-section">
+        <img src="split.png" alt="Split Image" class="book-image">
+        <p>first book is coming soon :)</p>
     </div>
     <a href="index.html" class="back-link">Back to home</a>
 </body>
