@@ -7,32 +7,47 @@
         body {
             margin: 0;
             padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
             background-color: white;
             font-family: Arial, sans-serif;
         }
 
-        nav {
+        .header {
             display: flex;
-            justify-content: space-around;
-            width: 80%;
-            max-width: 400px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
 
-        a {
+        .header-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            width: 80%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+
+        nav a {
             color: black;
             text-decoration: none;
+            margin: 0 10px;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="https://twitter.com/jackfsweeney" target="_blank">Twitter</a>
-        <a href="https://jsweeney.substack.com/">Blogs</a>
-        <a href="poems.html">Poems</a>
-    </nav>
+    <div class="header">
+        <img src="https://i.pinimg.com/564x/3c/90/a4/3c90a4488a84d99bba0880de0cdf6eb1.jpg" class="header-logo">
+        <nav>
+            <a href="https://twitter.com/jackfsweeney" target="_blank">Twitter</a>
+            <a href="https://jsweeney.substack.com/">Blogs</a>
+            <a href="poems.html">Poems</a>
+        </nav>
+    </div>
 </body>
 </html>
