@@ -17,17 +17,19 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            background-color: rgba(255, 255, 255, 0.9);
         }
 
         .header-logo {
-            width: 300px;
+            width: 555px;
             height: auto;
             margin-bottom: 20px;
+            border-radius: 0px;
         }
 
         .welcome-text {
             font-size: 24px;
-            margin-bottom: 10px; /* Updated spacing */
+            margin-bottom: 20px;
             color: black;
             text-decoration: none;
             font-weight: bold;
@@ -40,7 +42,7 @@
             justify-content: center;
             width: 80%;
             max-width: 400px;
-            margin-top: 10px; /* Updated spacing */
+            margin-top: 10px;
         }
 
         nav a {
@@ -49,18 +51,74 @@
             text-decoration: none;
             margin: 0 10px;
         }
+
+        .play-button {
+            margin-bottom: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            .welcome-text {
+                font-size: 20px;
+            }
+
+            .header-logo {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <img src="https://i.pinimg.com/564x/3c/90/a4/3c90a4488a84d99bba0880de0cdf6eb1.jpg" class="header-logo">
+        <h1 class="welcome-text">Welcome</h1>
+           <button id="initialButton" class="play-button" onclick="playAudio()">click me</button>
+        <button id="playPauseButton" class="play-button" onclick="playPauseAudio()" style="display: none;">Pause</button>
+        <audio id="audioPlayer" src="electriczoo.mp3"></audio>
+        <img id="imageSwitch" src="jack.jpeg" class="header-logo">
         <nav>
-            <a href="https://twitter.com/jackfsweeney" target="_blank">Twitter</a>
-            <a href="https://jsweeney.substack.com/">Blogs</a>
+            <a href="art.html">Art</a>
             <a href="poems.html">Poems</a>
             <a href="videos.html">Videos</a>
+            <a href="https://twitter.com/jackfsweeney" target="_blank">Twitter</a>
+            <a href="https://jsweeney.substack.com/">Blogs</a>
             <a href="about.html">About</a>
         </nav>
     </div>
+
+    <script>
+        function playAudio() {
+            let audio = document.getElementById("audioPlayer");
+            let image = document.getElementById("imageSwitch");
+            let initialButton = document.getElementById("initialButton");
+            let playPauseButton = document.getElementById("playPauseButton");
+
+            audio.play();
+            image.src = "spongebob.gif";
+            initialButton.style.display = "none";
+            playPauseButton.style.display = "block";
+        }
+
+        function playPauseAudio() {
+            let audio = document.getElementById("audioPlayer");
+            let image = document.getElementById("imageSwitch");
+            let playPauseButton = document.getElementById("playPauseButton");
+
+            if(audio.paused) {
+                audio.play();
+                image.src = "spongebob.gif";
+                playPauseButton.innerHTML = "Pause";
+            } else {
+                audio.pause();
+                image.src = "jack.jpeg";
+                playPauseButton.innerHTML = "Play";
+            }
+        }
+    </script>
 </body>
 </html>

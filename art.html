@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #art-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        #art-gallery img {
+            max-width: 555px; /* Set maximum width to 555px */
+            height: auto;
+            border-radius: 5px;
+            display: none;
+            object-fit: contain;
+            margin: 0 auto; /* Center each image */
+        }
+
+        .back-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .buttons-container button {
+            margin: 0 10px;
+        }
+
+        @media only screen and (min-width: 600px) {
+            #art-gallery {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('#art-gallery img');
+            let currentIndex = 0;
+
+            function showImage(index) {
+                images[currentIndex].style.display = 'none';
+                images[index].style.display = 'block';
+                currentIndex = index;
+            }
+
+            function nextImage() {
+                let newIndex = currentIndex + 1;
+                if (newIndex >= images.length) {
+                    newIndex = 0;
+                }
+                showImage(newIndex);
+            }
+
+            function previousImage() {
+                let newIndex = currentIndex - 1;
+                if (newIndex < 0) {
+                    newIndex = images.length - 1;
+                }
+                showImage(newIndex);
+            }
+
+            showImage(currentIndex);
+
+            const nextButton = document.createElement('button');
+            nextButton.innerText = 'Next';
+            nextButton.addEventListener('click', nextImage);
+
+            const previousButton = document.createElement('button');
+            previousButton.innerText = 'Previous';
+            previousButton.addEventListener('click', previousImage);
+
+            const buttonsContainer = document.createElement('div');
+            buttonsContainer.className = 'buttons-container';
+            buttonsContainer.appendChild(previousButton);
+            buttonsContainer.appendChild(nextButton);
+            document.body.appendChild(buttonsContainer);
+
+            const galleryContainer = document.createElement('div');
+            galleryContainer.id = 'art-gallery';
+            document.body.appendChild(galleryContainer);
+
+            for (let i = 0; i < images.length; i++) {
+                galleryContainer.appendChild(images[i]);
+            }
+        });
+    </script>
+</head>
+<body>
+    <a href="index.html" class="back-link">Back to Home</a>
+    <h1>Art Gallery</h1>
+    <div id="art-gallery">
+        <!-- Image 1 -->
+        <img src="art1.jpeg" alt="Art 1">
+        
+        <!-- Image 2 -->
+        <img src="art2.jpeg" alt="Art 2">
+
+                 <!-- Image 12 -->
+        <img src="art12.jpeg" alt="Art 12">
+        
+        <!-- Image 3 -->
+        <img src="art3.jpg" alt="Art 3">
+        
+        <!-- Image 4 -->
+        <img src="art4.jpg" alt="Art 4">
+        
+        <!-- Image 5 -->
+        <img src="art5.jpeg" alt="Art 5">
+        
+        <!-- Image 6 -->
+        <img src="art6.jpeg" alt="Art 6">
+        
+        <!-- Image 7 -->
+        <img src="art7.jpeg" alt="Art 7">
+        
+        <!-- Image 8 -->
+        <img src="art8.jpg" alt="Art 8">
+        
+        <!-- Image 9 -->
+        <img src="art9.jpg" alt="Art 9">
+        
+        <!-- Image 10 -->
+        <img src="art10.jpg" alt="Art 10">
+        
+        <!-- Image 11 -->
+        <img src="art11.jpg" alt="Art 11">
+
+        <!-- Image 13 -->
+        <img src="art13.jpeg" alt="Art 13">
+    </div>
+</body>
+</html>

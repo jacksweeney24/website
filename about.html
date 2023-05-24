@@ -34,6 +34,18 @@
             max-width: 100%;
             height: auto;
         }
+        
+        .hidden {
+            display: none;
+        }
+
+        .next-button {
+            margin-top: 10px;
+        }
+
+        .additional-text {
+            margin-top: 20px;
+        }
 
         @media only screen and (max-width: 600px) {
             .content {
@@ -44,9 +56,47 @@
 </head>
 <body>
     <div class="content">
-        <p>hi am jack</p>
-        <img src="profpic.gif" alt="Profile Picture" class="profile-pic">
+        <p id="intro-text">Hi, I am Jack</p>
+        <img src="profpic.gif" alt="Profile Picture" class="profile-pic" id="profile-pic">
+        <button onclick="nextText()" id="next-button" class="next-button">Next</button>
+        <p id="additional-text-1" class="hidden additional-text">Additional text 1</p>
+        <p id="additional-text-2" class="hidden additional-text">Additional text 2</p>
+        <p id="additional-text-3" class="hidden additional-text">Additional text 3</p>
     </div>
-    <a href="index.html" class="back-link">Back to home</a>
+    <a href="index.html" id="back-link" class="back-link">Back to home</a>
+
+    <script>
+        var currentText = 0;
+        var maxTexts = 3;
+        var nextButton = document.getElementById('next-button');
+        var backLink = document.getElementById('back-link');
+
+        function nextText() {
+            var introText = document.getElementById('intro-text');
+            var profilePic = document.getElementById('profile-pic');
+            var additionalText1 = document.getElementById('additional-text-1');
+            var additionalText2 = document.getElementById('additional-text-2');
+            var additionalText3 = document.getElementById('additional-text-3');
+
+            currentText++;
+
+            if (currentText === 1) {
+                introText.style.display = 'none';
+                profilePic.style.display = 'none';
+                additionalText1.style.display = 'block';
+            } else if (currentText === 2) {
+                additionalText1.style.display = 'none';
+                additionalText2.style.display = 'block';
+            } else if (currentText === 3) {
+                additionalText2.style.display = 'none';
+                additionalText3.style.display = 'block';
+                nextButton.textContent = 'Back Home';
+                backLink.href = 'index.html';
+            } else {
+                // Return to homepage
+                window.location.href = backLink.href;
+            }
+        }
+    </script>
 </body>
 </html>
