@@ -14,21 +14,22 @@
             text-align: center;
         }
 
-        #art-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 30px;
-        }
-
         #art-gallery img {
-            max-width: 555px; /* Set maximum width to 555px */
-            height: auto;
-            border-radius: 5px;
-            display: none;
-            object-fit: contain;
-            margin: 0 auto; /* Center each image */
-        }
+    max-width: 100%; /* By default, use 100% of the width of the screen */
+    height: auto;
+    border-radius: 5px;
+    display: none;
+    object-fit: contain;
+    margin: 0 auto; /* Center each image */
+}
+
+@media only screen and (min-width: 600px) {
+    /* On larger screens, set the maximum width to 555px */
+    #art-gallery img {
+        max-width: 555px;
+    }
+}
+
 
         .back-link {
             position: absolute;
@@ -112,13 +113,13 @@
     <h1>Art Gallery</h1>
     <div id="art-gallery">
         <!-- Image 1 -->
-        <img src="art1.jpeg" alt="Art 1">
+        <img src="art1.jpg" alt="Art 1">
         
         <!-- Image 2 -->
-        <img src="art2.jpeg" alt="Art 2">
+        <img src="art2.jpg" alt="Art 2">
 
                  <!-- Image 12 -->
-        <img src="art12.jpeg" alt="Art 12">
+        <img src="art12.jpg" alt="Art 12">
 
         <!-- Image 3 -->
         <img src="art3.jpg" alt="Art 3">
@@ -127,28 +128,28 @@
         <img src="art4.jpg" alt="Art 4">
         
         <!-- Image 5 -->
-        <img src="art5.jpeg" alt="Art 5">
+        <img src="art5.jpg" alt="Art 5">
         
         <!-- Image 6 -->
-        <img src="art6.jpeg" alt="Art 6">
+        <img src="art6.jpg" alt="Art 6">
         
         <!-- Image 7 -->
-        <img src="art7.jpeg" alt="Art 7">
+        <img src="art7.jpg" alt="Art 7">
         
         <!-- Image 8 -->
-        <img src="art8.JPG" alt="Art 8">
+        <img src="art8.jpg" alt="Art 8">
         
         <!-- Image 9 -->
-        <img src="art9.JPG" alt="Art 9">
+        <img src="art9.jpg" alt="Art 9">
         
         <!-- Image 10 -->
-        <img src="art10.JPG" alt="Art 10">
+        <img src="art10.jpg" alt="Art 10">
         
         <!-- Image 11 -->
-        <img src="art11.JPG" alt="Art 11">
+        <img src="art11.jpg" alt="Art 11">
 
         <!-- Image 13 -->
-        <img src="art13.jpeg" alt="Art 13">
+        <img src="art13.jpg" alt="Art 13">
     </div>
 </body>
 </html>
