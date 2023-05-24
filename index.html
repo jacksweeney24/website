@@ -43,13 +43,15 @@
             width: 80%;
             max-width: 400px;
             margin-top: 10px;
+            flex-wrap: wrap; /* Added flex-wrap to wrap menu items */
         }
 
         nav a {
             font-size: 16px;
             color: black;
             text-decoration: none;
-            margin: 0 10px;
+            margin: 5px 10px; /* Adjusted margin for better spacing */
+            white-space: nowrap; /* Prevent menu items from wrapping */
         }
 
         .play-button {
@@ -77,7 +79,7 @@
 <body>
     <div class="header">
         <h1 class="welcome-text">Welcome</h1>
-           <button id="initialButton" class="play-button" onclick="playAudio()">click me</button>
+        <button id="initialButton" class="play-button" onclick="playAudio()">click me</button>
         <button id="playPauseButton" class="play-button" onclick="playPauseAudio()" style="display: none;">Pause</button>
         <audio id="audioPlayer" src="electriczoo.mp3"></audio>
         <img id="imageSwitch" src="jack.jpeg" class="header-logo">
