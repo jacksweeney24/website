@@ -43,7 +43,7 @@
         }
 
         nav {
-            display: flex;
+            display: none; /* Hide the nav menu initially */
             justify-content: center;
             width: 80%;
             max-width: 400px;
@@ -57,16 +57,6 @@
             text-decoration: none;
             margin: 5px 10px; /* Adjusted margin for better spacing */
             white-space: nowrap; /* Prevent menu items from wrapping */
-        }
-
-        .play-button {
-            margin-bottom: 20px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            color: #000;
-            text-decoration: none;
         }
 
         @media (max-width: 480px) {
@@ -84,11 +74,9 @@
 <body>
     <div class="header">
         <h1 class="welcome-text">Welcome</h1>
-        <button id="initialButton" class="play-button" onclick="playAudio()">click me</button>
-        <button id="playPauseButton" class="play-button" onclick="playPauseAudio()" style="display: none;">Pause</button>
         <audio id="audioPlayer" src="electriczoo.mp3"></audio>
         <img id="imageSwitch" src="jack.jpeg" class="header-logo">
-        <nav>
+        <nav id="navMenu">
             <a href="art.html">Art</a>
             <a href="poems.html">Poems</a>
             <a href="videos.html">Videos</a>
@@ -96,6 +84,7 @@
             <a href="https://jsweeney.substack.com/">Blogs</a>
             <a href="about.html">About</a>
         </nav>
+        <button id="initialButton" class="play-button" onclick="playAudio()">click me</button>
     </div>
 
     <script>
@@ -103,28 +92,12 @@
             let audio = document.getElementById("audioPlayer");
             let image = document.getElementById("imageSwitch");
             let initialButton = document.getElementById("initialButton");
-            let playPauseButton = document.getElementById("playPauseButton");
+            let navMenu = document.getElementById("navMenu");
 
             audio.play();
             image.src = "spongebob.gif";
             initialButton.style.display = "none";
-            playPauseButton.style.display = "block";
-        }
-
-        function playPauseAudio() {
-            let audio = document.getElementById("audioPlayer");
-            let image = document.getElementById("imageSwitch");
-            let playPauseButton = document.getElementById("playPauseButton");
-
-            if(audio.paused) {
-                audio.play();
-                image.src = "spongebob.gif";
-                playPauseButton.innerHTML = "Pause";
-            } else {
-                audio.pause();
-                image.src = "jack.jpeg";
-                playPauseButton.innerHTML = "Play";
-            }
+            navMenu.style.display = "flex"; // Show the nav menu
         }
     </script>
 </body>
