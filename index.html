@@ -8,7 +8,7 @@
     <meta property="og:url" content="http://jacksweeney.xyz">
 
     <title>My Personal Website</title>
-    <style>
+<style>
         body {
             margin: 0;
             padding: 0;
@@ -100,11 +100,23 @@
     </div>
 
     <script>
+        // Check if 'visited' is set in localStorage
+        let visited = localStorage.getItem('visited');
+        let initialButton = document.getElementById("initialButton");
+        let navMenu = document.getElementById("navMenu");
+        if (visited) {
+            // If 'visited' is set, hide the button and display the nav menu
+            initialButton.style.display = "none";
+            navMenu.style.display = "flex";
+        } else {
+            // If 'visited' is not set, display the button and hide the nav menu
+            initialButton.style.display = "block";
+            navMenu.style.display = "none";
+        }
+
         function playAudio() {
             let audio = document.getElementById("audioPlayer");
             let image = document.getElementById("imageSwitch");
-            let initialButton = document.getElementById("initialButton");
-            let navMenu = document.getElementById("navMenu");
 
             audio.play();
             image.src = "spongebob.gif";
@@ -114,6 +126,9 @@
             setTimeout(function() {
                 navMenu.style.display = "flex"; // Show the nav menu
             }, 500);
+
+            // Set 'visited' in localStorage
+            localStorage.setItem('visited', true);
         }
     </script>
 </body>
