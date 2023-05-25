@@ -99,37 +99,22 @@
         <button id="initialButton" class="play-button" onclick="playAudio()">click me</button>
     </div>
 
-<script>
-    function playAudio() {
-        let audio = document.getElementById("audioPlayer");
-        let image = document.getElementById("imageSwitch");
-        let initialButton = document.getElementById("initialButton");
-        let navMenu = document.getElementById("navMenu");
+    <script>
+        function playAudio() {
+            let audio = document.getElementById("audioPlayer");
+            let image = document.getElementById("imageSwitch");
+            let initialButton = document.getElementById("initialButton");
+            let navMenu = document.getElementById("navMenu");
 
-        // Immediately play and pause the audio to load the data
-        audio.src = "electriczoo.mp3";
-        audio.play().then(() => audio.pause());
+            audio.play();
+            image.src = "spongebob.gif";
+            initialButton.style.display = "none";
 
-        // Add onload event listener to the image
-        image.onload = function() {
-            // The image has loaded, now try to play the audio
-            audio.onloadeddata = function() {
-                // The audio data has loaded, now play the audio
-                audio.play();
-            };
-        };
-
-        // Update the image source which triggers the onload event
-        image.src = "spongebob.gif";
-        initialButton.style.display = "none";
-
-        // Delay showing the nav menu by 500 milliseconds (half a second)
-        setTimeout(function() {
-            navMenu.style.display = "flex"; // Show the nav menu
-        }, 500);
-    }
-</script>
-
-
+            // Delay showing the nav menu by 500 milliseconds (half a second)
+            setTimeout(function() {
+                navMenu.style.display = "flex"; // Show the nav menu
+            }, 500);
+        }
+    </script>
 </body>
 </html>
