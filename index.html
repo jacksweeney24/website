@@ -23,6 +23,7 @@
             justify-content: center;
             min-height: 100vh;
             background-color: rgba(255, 255, 255, 0.9);
+            height: 100vh; /* Set a fixed height */
         }
 
         .header-logo {
@@ -86,7 +87,7 @@
     <div class="header">
         <h1 class="welcome-text">Welcome</h1>
         <audio id="audioPlayer" src="electriczoo.mp3"></audio>
-        <img id="imageSwitch" src="jack.jpeg" class="header-logo">
+        <img id="imageSwitch" src="https://blog.etemetaphysical.com/wp-content/uploads/2015/05/seedoflifeincircle1.jpg" class="header-logo">
         <nav id="navMenu">
             <a href="art.html">Art</a>
             <a href="poems.html">Poems</a>
@@ -108,7 +109,11 @@
             audio.play();
             image.src = "spongebob.gif";
             initialButton.style.display = "none";
-            navMenu.style.display = "flex"; // Show the nav menu
+
+            // Delay showing the nav menu by 500 milliseconds (half a second)
+            setTimeout(function() {
+                navMenu.style.display = "flex"; // Show the nav menu
+            }, 500);
         }
     </script>
 </body>
