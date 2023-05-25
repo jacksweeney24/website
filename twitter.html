@@ -39,16 +39,22 @@
             background: none; /* Remove button background */
             cursor: pointer;
             font-size: 16px;
-            color: #000;
-            text-decoration: none;
+            color: blue; /* Set button text color to blue */
+            text-decoration: underline; /* Underline the button text */
             outline: none; /* Remove button outline */
+        }
+
+        .loading-text {
+            text-align: center; /* Center the loading text */
+            font-size: 14px; /* Reduce the font size */
         }
     </style>
 </head>
 <body>
     <button class="back-button" onclick="window.location.href='index.html'">Back to home</button>
-    <h1>My top tweets (this could take a second to load)</h1>
-    <button class="follow-button" onclick="window.open('https://twitter.com/jackfsweeney', '_blank')">Follow me</button>
+    <h1>my top tweets</h1>
+    <p class="loading-text">(this could take a second to load lol)</p>
+    <button class="follow-button" onclick="window.open('https://twitter.com/jackfsweeney', '_blank')">follow me</button>
     <div class="tweet-container">
         <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
             <a href="https://twitter.com/jackfsweeney/status/1558833525008334848?s=20"></a>
