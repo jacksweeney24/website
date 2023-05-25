@@ -87,7 +87,7 @@
     <div class="header">
         <h1 class="welcome-text">Welcome</h1>
         <audio id="audioPlayer" src="electriczoo.mp3"></audio>
-        <img id="imageSwitch" src="flower.jpeg" class="header-logo">
+        <img id="imageSwitch" src="flower.jpeg" class="header-logo" onclick="toggleAudioImage()">
         <nav id="navMenu">
             <a href="art.html">Art</a>
             <a href="poems.html">Poems</a>
@@ -96,14 +96,17 @@
              <a href="https://jsweeney.substack.com/" target="_blank">Blogs</a>
             <a href="about.html">About</a>
         </nav>
-        <button id="initialButton" class="play-button" onclick="playAudio()">click me</button>
+        <button id="initialButton" class="play-button" onclick="toggleAudioImage()">click me</button>
     </div>
 
-    <script>
+   <script>
         // Check if 'visited' is set in localStorage
         let visited = localStorage.getItem('visited');
         let initialButton = document.getElementById("initialButton");
         let navMenu = document.getElementById("navMenu");
+        let audio = document.getElementById("audioPlayer");
+        let image = document.getElementById("imageSwitch");
+
         if (visited) {
             // If 'visited' is set, hide the button and display the nav menu
             initialButton.style.display = "none";
@@ -114,21 +117,24 @@
             navMenu.style.display = "none";
         }
 
-        function playAudio() {
-            let audio = document.getElementById("audioPlayer");
-            let image = document.getElementById("imageSwitch");
+        function toggleAudioImage() {
+            if(audio.paused){
+                audio.play();
+                image.src = "spongebob.gif";
+                initialButton.style.display = "none";
 
-            audio.play();
-            image.src = "spongebob.gif";
-            initialButton.style.display = "none";
+                // Delay showing the nav menu by 500 milliseconds (half a second)
+                setTimeout(function() {
+                    navMenu.style.display = "flex"; // Show the nav menu
+                }, 500);
 
-            // Delay showing the nav menu by 500 milliseconds (half a second)
-            setTimeout(function() {
-                navMenu.style.display = "flex"; // Show the nav menu
-            }, 500);
-
-            // Set 'visited' in localStorage
-            localStorage.setItem('visited', true);
+                // Set 'visited' in localStorage
+                localStorage.setItem('visited', true);
+            }
+            else{
+                audio.pause();
+                image.src = "flower.jpeg";
+            }
         }
     </script>
 </body>
