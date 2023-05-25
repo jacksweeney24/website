@@ -106,6 +106,10 @@
         let initialButton = document.getElementById("initialButton");
         let navMenu = document.getElementById("navMenu");
 
+        // Immediately play and pause the audio to load the data
+        audio.src = "electriczoo.mp3";
+        audio.play().then(() => audio.pause());
+
         // Add onload event listener to the image
         image.onload = function() {
             // The image has loaded, now try to play the audio
@@ -113,9 +117,6 @@
                 // The audio data has loaded, now play the audio
                 audio.play();
             };
-
-            // Update the audio source
-            audio.src = "electriczoo.mp3";
         };
 
         // Update the image source which triggers the onload event
@@ -128,6 +129,7 @@
         }, 500);
     }
 </script>
+
 
 </body>
 </html>
