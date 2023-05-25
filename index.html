@@ -8,7 +8,7 @@
     <meta property="og:url" content="http://jacksweeney.xyz">
 
     <title>My Personal Website</title>
-<style>
+    <style>
         body {
             margin: 0;
             padding: 0;
@@ -71,6 +71,20 @@
             outline: none; /* Remove button outline */
         }
 
+        @media (max-width: 1024px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+            .nav-top {
+            margin-bottom: 10px; /* Add spacing between top row and bottom row */
+        }
+        }
+
         @media (max-width: 480px) {
             .welcome-text {
                 font-size: 20px;
@@ -89,17 +103,21 @@
         <audio id="audioPlayer" src="electriczoo.mp3"></audio>
         <img id="imageSwitch" src="flower.jpeg" class="header-logo" onclick="toggleAudioImage()">
         <nav id="navMenu">
-            <a href="art.html">Art</a>
-            <a href="poems.html">Poems</a>
-            <a href="videos.html">Videos</a>
-            <a href="twitter.html">Twitter</a>
-             <a href="https://jsweeney.substack.com/" target="_blank">Blogs</a>
-            <a href="about.html">About</a>
+            <div class="nav-top">
+                <a href="art.html">Art</a>
+                <a href="poems.html">Poems</a>
+                <a href="videos.html">Videos</a>
+            </div>
+            <div class="nav-bottom">
+                <a href="twitter.html">Twitter</a>
+                <a href="https://jsweeney.substack.com/" target="_blank">Blogs</a>
+                <a href="about.html">About</a>
+            </div>
         </nav>
         <button id="initialButton" class="play-button" onclick="toggleAudioImage()">click me</button>
     </div>
 
-   <script>
+    <script>
         // Check if 'visited' is set in localStorage
         let visited = localStorage.getItem('visited');
         let initialButton = document.getElementById("initialButton");
