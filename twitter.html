@@ -1,11 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Twitter</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Top Tweets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .back-button {
+            margin-bottom: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #000;
+            text-decoration: none;
+            outline: none; /* Remove button outline */
+        }
+
+        .tweet-container {
+            width: 100%;
+            max-width: 550px; /* Limit maximum width of the tweet */
+            margin: 0 auto; /* Center the tweet */
+        }
+
+        h1 {
+            text-align: center; /* Center the title text */
+        }
+
+        .follow-button {
+            display: block; /* Display the button as a block element */
+            margin: 0 auto; /* Center the button horizontally */
+            margin-top: 20px; /* Add top margin to create space between the title and button */
+            border: none; /* Remove button border */
+            background: none; /* Remove button background */
+            cursor: pointer;
+            font-size: 16px;
+            color: #000;
+            text-decoration: none;
+            outline: none; /* Remove button outline */
+        }
+    </style>
 </head>
 <body>
-    <h1>This is the Twitter page.</h1>
-    <a href="index.html">Back to home</a>
+    <button class="back-button" onclick="window.location.href='index.html'">Back to home</button>
+    <h1>My top tweets (this could take a second to load)</h1>
+    <button class="follow-button" onclick="window.open('https://twitter.com/jackfsweeney', '_blank')">Follow me</button>
+    <div class="tweet-container">
+        <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+            <a href="https://twitter.com/jackfsweeney/status/1558833525008334848?s=20"></a>
+        </blockquote>
+        <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+            <a href="https://twitter.com/jackfsweeney/status/1650186473071583233?s=20"></a>
+        </blockquote>
+        <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+            <a href="https://twitter.com/jackfsweeney/status/1621360473160523776?s=20"></a>
+        </blockquote>
+        <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+            <a href="https://twitter.com/jackfsweeney/status/1657799764266610690?s=20"></a>
+        </blockquote>
+        <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+            <a href="https://twitter.com/jackfsweeney/status/1645925473673785344?s=20"></a>
+        </blockquote>
+        <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+            <a href="https://twitter.com/jackfsweeney/status/1171143033028431873?s=20"></a>
+        </blockquote>
+        <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+            <a href="https://twitter.com/LN_Capital/status/1589321548133203968?s=20"></a>
+        </blockquote>
+        <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+            <a href="https://twitter.com/LN_Capital/status/1612154008357011463?s=20"></a>
+        </blockquote>
+        <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+            <a href="https://twitter.com/LN_Capital/status/1594408238539218956?s=20"></a>
+        </blockquote>
+        <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+            <a href="https://twitter.com/LN_Capital/status/1614308872973344768?s=20"></a>
+        </blockquote>
+        <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+            <a href="https://twitter.com/LN_Capital/status/1657780599547912193?s=20"></a>
+        </blockquote>
+        <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+            <a href="https://twitter.com/LN_Capital/status/1602005600929546240?s=20"></a>
+        </blockquote>
+        <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+            <a href="https://twitter.com/LN_Capital/status/1605265299183472640?s=20"></a>
+        </blockquote>
+        <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+            <a href="https://twitter.com/LN_Capital/status/1647605539486957575?s=20"></a>
+        </blockquote>
+    </div>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
