@@ -118,42 +118,46 @@
     </div>
 
     <script>
-        // Check if 'visited' is set in localStorage
-        let visited = localStorage.getItem('visited');
-        let initialButton = document.getElementById("initialButton");
-        let navMenu = document.getElementById("navMenu");
-        let audio = document.getElementById("audioPlayer");
-        let image = document.getElementById("imageSwitch");
+    // Preload the GIF
+    let imgGif = new Image();
+    imgGif.src = "spongebob.gif";
 
-        if (visited) {
-            // If 'visited' is set, hide the button and display the nav menu
+    // Check if 'visited' is set in localStorage
+    let visited = localStorage.getItem('visited');
+    let initialButton = document.getElementById("initialButton");
+    let navMenu = document.getElementById("navMenu");
+    let audio = document.getElementById("audioPlayer");
+    let image = document.getElementById("imageSwitch");
+
+    if (visited) {
+        // If 'visited' is set, hide the button and display the nav menu
+        initialButton.style.display = "none";
+        navMenu.style.display = "flex";
+    } else {
+        // If 'visited' is not set, display the button and hide the nav menu
+        initialButton.style.display = "block";
+        navMenu.style.display = "none";
+    }
+
+    function toggleAudioImage() {
+        if(audio.paused){
+            audio.play();
+            image.src = imgGif.src; // Use the preloaded GIF
             initialButton.style.display = "none";
-            navMenu.style.display = "flex";
-        } else {
-            // If 'visited' is not set, display the button and hide the nav menu
-            initialButton.style.display = "block";
-            navMenu.style.display = "none";
+
+            // Delay showing the nav menu by 500 milliseconds (half a second)
+            setTimeout(function() {
+                navMenu.style.display = "flex"; // Show the nav menu
+            }, 500);
+
+            // Set 'visited' in localStorage
+            localStorage.setItem('visited', true);
         }
-
-        function toggleAudioImage() {
-            if(audio.paused){
-                audio.play();
-                image.src = "spongebob.gif";
-                initialButton.style.display = "none";
-
-                // Delay showing the nav menu by 500 milliseconds (half a second)
-                setTimeout(function() {
-                    navMenu.style.display = "flex"; // Show the nav menu
-                }, 500);
-
-                // Set 'visited' in localStorage
-                localStorage.setItem('visited', true);
-            }
-            else{
-                audio.pause();
-                image.src = "flower.jpeg";
-            }
+        else{
+            audio.pause();
+            image.src = "flower.jpeg";
         }
-    </script>
+    }
+</script>
 </body>
 </html>
