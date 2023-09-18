@@ -1,19 +1,28 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
 }
 
-nav {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
+h1 {
+  text-align: center;
 }
 
-a {
-    color: black;
-    text-decoration: none;
+#art-gallery img, #cart img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  display: none;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 600px) {
+  #art-gallery img, #cart img {
+    max-width: 555px;
+  }
+}
+
+#cart, #checkout {
+  margin-top: 20px;
 }
