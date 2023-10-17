@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  if(req.hostname === 'jacksweeney.xyz') {
+  if(req.hostname === 'jacksweeney.xyz' || req.hostname === 'localhost') {
     res.sendFile(__dirname + '/main-domain/index.html');
   } else if(req.hostname === 'services.jacksweeney.xyz') {
     res.sendFile(__dirname + '/sub-domain/index.html');
@@ -28,6 +28,7 @@ app.get('/', (req, res) => {
     res.status(404).send('Not Found');
   }
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
