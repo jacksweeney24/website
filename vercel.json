@@ -2,7 +2,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/main-domain/$1",
+      "dest": "/jacksweeney.xyz/$1",
       "continue": true,
       "headers": {
         "host": "jacksweeney.xyz"
@@ -10,7 +10,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/sub-domain/$1",
+      "dest": "/services.jacksweeney.xyz/$1",
       "continue": true,
       "headers": {
         "host": "services.jacksweeney.xyz"
