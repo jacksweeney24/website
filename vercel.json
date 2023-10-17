@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/main-domain/$1",
+      "base": "jacksweeney.xyz"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/sub-domain/$1",
+      "base": "services.jacksweeney.xyz"
+    }
+  ]
+}
