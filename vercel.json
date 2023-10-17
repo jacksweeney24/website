@@ -1,20 +1,5 @@
 {
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/jacksweeney.xyz/$1",
-      "continue": true,
-      "headers": {
-        "host": "jacksweeney.xyz"
-      }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/services.jacksweeney.xyz/$1",
-      "continue": true,
-      "headers": {
-        "host": "services.jacksweeney.xyz"
-      }
-    }
+  "builds": [
+    { "src": "server.js", "use": "@vercel/node" }
   ]
 }
