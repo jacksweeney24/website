@@ -3,6 +3,6 @@
     { "src": "server.js", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/sub/(.*)", "dest": "/sub/$1" }
+    { "src": "/(.*)", "dest": "server.js" }
   ]
 }
