@@ -17,16 +17,15 @@
         }
 
         .header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: rgba(255, 255, 255, 0.9);
-            height: 100vh; /* Set a fixed height */
-            text-align: center;
-                            margin-top: 20px;
-        }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin-top: 20px;
+}
 
         .header-logo {
             width: 222px;
@@ -64,18 +63,8 @@
             white-space: nowrap; /* Prevent menu items from wrapping */
             font-style: italic; /* Add italic style */
             position: relative; /* Add relative positioning */
-            padding-right: 20px; /* Add right padding to create space for dashes */
-        }
-
-        .play-button {
-            margin-bottom: 20px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            color: #000;
-            text-decoration: none;
-            outline: none; /* Remove button outline */
+            font-weight: bold; /* Make text bold */
+            margin: 10px;
         }
 
         /* Hide the video iframe by default */
@@ -105,14 +94,41 @@
         }
 
         .work-together-button {
-        width: 200px;
-        height: 44px;
-        flex-shrink: 0;
-        font-size: 16px; /* Font size */
-        cursor: pointer; /* Cursor as pointer */
-        border-radius: 12px; /* Rounded corners */
-        margin-bottom: 20px
-        }
+    width: auto; /* Auto width based on content */
+    padding: 10px 20px; /* Padding around text */
+    font-size: 18px; /* Font size */
+    cursor: pointer; /* Cursor as pointer */
+    border-radius: 12px; /* Rounded corners */
+    margin-bottom: 20px;
+    background-color: black; /* Background color */
+    color: white; /* Text color */
+    border: 2px solid black; /* Border color */
+    transition: all 0.3s ease; /* Transition for hover effect */
+}
+
+.work-together-button:hover {
+    background-color: white; /* Background color when hovered */
+    color: black; /* Text color when hovered */
+    border: 2px solid white; /* Border color when hovered */
+    font-weight: bold;
+}
+
+.tweet-table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.tweet-table td {
+    width: 33.33%;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .tweet-table td {
+        width: 100%;
+        display: block;
+    }
+}
 
     </style>
 </head>
@@ -142,16 +158,29 @@
         </div>
 
                 <!-- Container for the copy content -->
-        <div class="copy-container" style="display: none; margin-top: 20px;">
-            <p>Your copy content goes here.</p>
-        </div>
+        <!-- Container for the copy content -->
+<div class="copy-container" style="display: none; margin-top: 20px;">
+    <table class="tweet-table">
+        <tr>
+            <td><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1685653991013638144"></a></blockquote></td>
+            <td><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1685653991013638144"></a></blockquote></td>
+            <td><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1667806389601796096"></a></blockquote></td>
+        </tr>
+        <tr>
+            <td><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1614308872973344768"></a></blockquote></td>
+            <td><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1602005600929546240"></a></blockquote></td>
+            <td><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1594408238539218956"></a></blockquote></td>
+        </tr>
+    </table>
+</div>
+
 
                 <!-- Button to show contact section -->
-        <button class="work-together-button" style="margin-top: 20px;" onclick="toggleContact()">Let's Work Together</button>
+        <button class="work-together-button" style="margin-top: 20px;" onclick="toggleContact()">Get in touch</button>
 
         <!-- Container for the contact section -->
-        <div class="contact-container" style="display: none; margin-top: 20px;">
-            <h2>CONTACT</h2>
+        <div class="contact-container" style="display: none;">
+            <h2>Contact</h2>
             <p>Reach out via email, or schedule an onboarding call!</p>
             <p>jack.sweeney24@gmail.com</p>
             <p>Calendly Link</p>
@@ -160,27 +189,27 @@
     </div>
 
      <script>
-        function toggleVisibility(selector) {
-            const sections = ['.slide-container', '.video-container', '.copy-container', '.contact-container'];
-            sections.forEach(section => {
-                const element = document.querySelector(section);
-                element.style.display = 'none';
-            });
+    function toggleVisibility(selector) {
+        const sections = ['.slide-container', '.video-container', '.copy-container', '.contact-container'];
+        let isCurrentSectionVisible = false;
 
-            const element = document.querySelector(selector);
-            element.style.display = 'block';
-        }
+        sections.forEach(section => {
+            const element = document.querySelector(section);
+            if (element.style.display === 'block' && section === selector) {
+                isCurrentSectionVisible = true;
+            }
+            element.style.display = 'none';
+        });
 
-        function toggleContact() {
-            const sections = ['.slide-container', '.video-container', '.copy-container'];
-            sections.forEach(section => {
-                const element = document.querySelector(section);
-                element.style.display = 'none';
-            });
+        const element = document.querySelector(selector);
+        element.style.display = isCurrentSectionVisible ? 'none' : 'block';
+    }
 
-            const contactElement = document.querySelector('.contact-container');
-            contactElement.style.display = (contactElement.style.display === 'none' || contactElement.style.display === '') ? 'block' : 'none';
-        }
-    </script>
+    function toggleContact() {
+        const contactElement = document.querySelector('.contact-container');
+        contactElement.style.display = (contactElement.style.display === 'none' || contactElement.style.display === '') ? 'block' : 'none';
+    }
+</script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
