@@ -101,8 +101,7 @@
 </head>
 <body>
     <div class="header">
-        <audio id="audioPlayer" src="electriczoo.mp3"></audio>
-        <img id="imageSwitch" src="profpic.jpg" class="header-logo" onclick="toggleAudioImage()">
+        <img id="imageSwitch" src="profpic.jpg" class="header-logo">
         <h1 class="welcome-text">Jack Sweeney // Viral Content Specialist</h1>
         <nav id="navMenu">
             <div class="nav-top">
@@ -117,48 +116,6 @@
         <!-- Add a hidden iframe to preload the YouTube video in the background -->
         <iframe id="youtubeIframe" width="1" height="1" style="display: none;"></iframe>
     </div>
-
-    <script>
-    // Preload the GIF
-    let imgGif = new Image();
-    imgGif.src = "spongebob.gif";
-
-    // Check if 'visited' is set in localStorage
-    let visited = localStorage.getItem('visited');
-    let initialButton = document.getElementById("initialButton");
-    let navMenu = document.getElementById("navMenu");
-    let audio = document.getElementById("audioPlayer");
-    let image = document.getElementById("imageSwitch");
-
-    if (visited) {
-        // If 'visited' is set, hide the button and display the nav menu
-        initialButton.style.display = "none";
-        navMenu.style.display = "flex";
-    } else {
-        // If 'visited' is not set, display the button and hide the nav menu
-        initialButton.style.display = "block";
-        navMenu.style.display = "none";
-    }
-
-    function toggleAudioImage() {
-        if(audio.paused){
-            audio.play();
-            image.src = imgGif.src; // Use the preloaded GIF
-            initialButton.style.display = "none";
-
-            // Delay showing the nav menu by 500 milliseconds (half a second)
-            setTimeout(function() {
-                navMenu.style.display = "flex"; // Show the nav menu
-            }, 500);
-
-            // Set 'visited' in localStorage
-            localStorage.setItem('visited', true);
-        }
-        else{
-            audio.pause();
-            image.src = "flower.jpeg";
-        }
-    }
 
     // Function to embed and load the YouTube video
     function embedYouTubeVideo() {
