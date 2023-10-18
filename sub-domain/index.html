@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="welcume">
+    <meta property="og:title" content="welcome">
     <meta property="og:description" content="to my website">
     <meta property="og:image" content="http://jacksweeney.xyz/cursor.jpeg">
     <meta property="og:url" content="http://jacksweeney.xyz">
 
-    <title>My Personal Website</title>
+    <title>Services</title>
     <style>
         body {
             margin: 0;
@@ -27,7 +27,7 @@
         }
 
         .header-logo {
-            width: 555px;
+            width: 222px;
             height: auto;
             margin-bottom: 20px;
             border-radius: 0px;
@@ -52,69 +52,70 @@
             flex-wrap: wrap; /* Added flex-wrap to wrap menu items */
         }
 
+    nav a {
+        font-size: 16px;
+        color: black;
+        text-decoration: underline; /* Add underline style */
+        white-space: nowrap; /* Prevent menu items from wrapping */
+        font-style: italic; /* Add italic style */
+        position: relative; /* Add relative positioning */
+        padding-right: 20px; /* Add right padding to create space for dashes */
+    }
+
+    .play-button {
+        margin-bottom: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        color: #000;
+        text-decoration: none;
+        outline: none; /* Remove button outline */
+    }
+
+    @media (max-width: 1024px) {
+        nav {
+            flex-direction: column;
+            align-items: center;
+        }
+
         nav a {
-            font-size: 16px;
-            color: black;
-            text-decoration: none;
-            margin: 5px 10px; /* Adjusted margin for better spacing */
-            white-space: nowrap; /* Prevent menu items from wrapping */
+            margin: 5px;
+        }
+        .nav-top {
+        margin-bottom: 10px; /* Add spacing between top row and bottom row */
+    }
+    }
+
+    @media (max-width: 480px) {
+        .welcome-text {
+            font-size: 20px;
         }
 
-        .play-button {
-            margin-bottom: 20px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            color: #000;
-            text-decoration: none;
-            outline: none; /* Remove button outline */
+        .header-logo {
+            width: 100%;
+            max-width: 300px;
         }
-
-        @media (max-width: 1024px) {
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav a {
-                margin: 5px;
-            }
-            .nav-top {
-            margin-bottom: 10px; /* Add spacing between top row and bottom row */
-        }
-        }
-
-        @media (max-width: 480px) {
-            .welcome-text {
-                font-size: 20px;
-            }
-
-            .header-logo {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
     <div class="header">
-        <h1 class="welcome-text">welcome</h1>
         <audio id="audioPlayer" src="electriczoo.mp3"></audio>
         <img id="imageSwitch" src="profpic.jpg" class="header-logo" onclick="toggleAudioImage()">
+        <h1 class="welcome-text">Jack Sweeney // Viral Content Specialist</h1>
         <nav id="navMenu">
             <div class="nav-top">
-                <a href="art.html">Art</a>
-                <a href="poems.html">Poems</a>
-                <a href="videos.html">Videos</a>
-            </div>
-            <div class="nav-bottom">
-                <a href="twitter.html">Twitter</a>
-                <a href="https://jsweeney.substack.com/" target="_blank">Blog</a>
-                <a href="about.html">About</a>
+                <a href="social.html">Social</a>
+                <!-- Add a JavaScript function to embed and load the YouTube video -->
+                <a href="javascript:void(0);" onclick="embedYouTubeVideo()">Video</a>
+                <a href="Copy.html">Copy</a>
             </div>
         </nav>
         <button id="initialButton" class="play-button" onclick="toggleAudioImage()">click me</button>
+        
+        <!-- Add a hidden iframe to preload the YouTube video in the background -->
+        <iframe id="youtubeIframe" width="1" height="1" style="display: none;"></iframe>
     </div>
 
     <script>
@@ -157,6 +158,22 @@
             audio.pause();
             image.src = "flower.jpeg";
         }
+    }
+
+    // Function to embed and load the YouTube video
+    function embedYouTubeVideo() {
+        // Get the YouTube video URL
+        const youtubeURL = "https://www.youtube.com/watch?v=rJYKapc1zK4&ab_channel=LNCapital";
+
+        // Generate the embed URL
+        const embedURL = youtubeURL.replace("watch?v=", "embed/");
+
+        // Create and set the src attribute of the iframe to the embed URL
+        const youtubeIframe = document.getElementById("youtubeIframe");
+        youtubeIframe.src = embedURL;
+
+        // Show the iframe
+        youtubeIframe.style.display = "block";
     }
 </script>
 </body>
