@@ -7,7 +7,7 @@
     <meta property="og:image" content="http://jacksweeney.xyz/cursor.jpeg">
     <meta property="og:url" content="http://jacksweeney.xyz">
 
-    <title>Jack's Services❤️</title>
+    <title>Jack's Services</title>
     <style>
         body {
             margin: 0;
@@ -24,6 +24,8 @@
             min-height: 100vh;
             background-color: rgba(255, 255, 255, 0.9);
             height: 100vh; /* Set a fixed height */
+            text-align: center;
+                            margin-top: 20px;
         }
 
         .header-logo {
@@ -48,10 +50,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 80%;
+            width:%;
             max-width: 400px;
             margin-top: 10px;
             flex-wrap: wrap; /* Added flex-wrap to wrap menu items */
+            width: 100%;
         }
 
         nav a {
@@ -76,7 +79,7 @@
         }
 
         /* Hide the video iframe by default */
-        #videoIframe {
+        .video-container {
             display: none;
             margin-top: 20px;
         }
@@ -100,6 +103,17 @@
                 max-width: 300px;
             }
         }
+
+        .work-together-button {
+        width: 200px;
+        height: 44px;
+        flex-shrink: 0;
+        font-size: 16px; /* Font size */
+        cursor: pointer; /* Cursor as pointer */
+        border-radius: 12px; /* Rounded corners */
+        margin-bottom: 20px
+        }
+
     </style>
 </head>
 <body>
@@ -108,33 +122,64 @@
         <h1 class="welcome-text">Jack Sweeney // Content Specialist</h1>
         <nav id="navMenu">
             <div class="nav-top">
-                <a href="social.html">Social</a>
-                <a href="javascript:void(0);" onclick="toggleVideo()">Video</a>
-                <a href="Copy.html">Copy</a>
+                <a href="javascript:void(0);" onclick="toggleVisibility('.slide-container')">Social</a>
+                <a href="javascript:void(0);" onclick="toggleVisibility('.video-container')">Video</a>
+                <a href="javascript:void(0);" onclick="toggleVisibility('.copy-container')">Copy</a>
             </div>
         </nav>
-        
-        <!-- Add an iframe for the video with the ID -->
-        <iframe id="videoIframe" width="560" height="315" src="https://www.youtube.com/embed/rJYKapc1zK4" frameborder="0" allowfullscreen></iframe>
+
+        <!-- Container for the slide deck -->
+         <div class="slide-container" style="display: none; margin-top: 20px;">
+            <iframe src="example.pdf" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+        </div>
+
+        <!-- Container for the video content -->
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/rJYKapc1zK4" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Go4uJoMhwrE" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zjaM8Vhe3JU" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+                <!-- Container for the copy content -->
+        <div class="copy-container" style="display: none; margin-top: 20px;">
+            <p>Your copy content goes here.</p>
+        </div>
+
+                <!-- Button to show contact section -->
+        <button class="work-together-button" style="margin-top: 20px;" onclick="toggleContact()">Let's Work Together</button>
+
+        <!-- Container for the contact section -->
+        <div class="contact-container" style="display: none; margin-top: 20px;">
+            <h2>CONTACT</h2>
+            <p>Reach out via email, or schedule an onboarding call!</p>
+            <p>jack.sweeney24@gmail.com</p>
+            <p>Calendly Link</p>
+        </div>
+
     </div>
 
-    <script>
-        let videoVisible = false; // Variable to track video visibility
+     <script>
+        function toggleVisibility(selector) {
+            const sections = ['.slide-container', '.video-container', '.copy-container', '.contact-container'];
+            sections.forEach(section => {
+                const element = document.querySelector(section);
+                element.style.display = 'none';
+            });
 
-        function toggleVideo() {
-            // Get the video iframe element by its ID
-            const videoIframe = document.getElementById("videoIframe");
+            const element = document.querySelector(selector);
+            element.style.display = 'block';
+        }
 
-            // Toggle video visibility
-            videoVisible = !videoVisible;
+        function toggleContact() {
+            const sections = ['.slide-container', '.video-container', '.copy-container'];
+            sections.forEach(section => {
+                const element = document.querySelector(section);
+                element.style.display = 'none';
+            });
 
-            if (videoVisible) {
-                // Display the video iframe
-                videoIframe.style.display = "block";
-            } else {
-                // Hide the video iframe
-                videoIframe.style.display = "none";
-            }
+            const contactElement = document.querySelector('.contact-container');
+            contactElement.style.display = (contactElement.style.display === 'none' || contactElement.style.display === '') ? 'block' : 'none';
         }
     </script>
 </body>
