@@ -76,6 +76,12 @@
             outline: none; /* Remove button outline */
         }
 
+        /* Hide the video iframe by default */
+        #videoIframe {
+            display: none;
+            margin-top: 20px;
+        }
+
         @media (max-width: 1024px) {
             nav a {
                 margin: 5px;
@@ -104,29 +110,32 @@
         <nav id="navMenu">
             <div class="nav-top">
                 <a href="social.html">Social</a>
-                <a href="javascript:void(0);" onclick="embedYouTubeVideo()">Video</a>
+                <a href="javascript:void(0);" onclick="toggleVideo()">Video</a>
                 <a href="Copy.html">Copy</a>
             </div>
         </nav>
         
-        <!-- Add a hidden iframe to preload the YouTube video in the background -->
-        <iframe id="youtubeIframe" width="560" height="315" style="display: none;"></iframe>
+        <!-- Add an iframe for the video with the ID -->
+        <iframe id="videoIframe" width="560" height="315" src="https://www.youtube.com/embed/rJYKapc1zK4" frameborder="0" allowfullscreen></iframe>
     </div>
-    
+
     <script>
-        function embedYouTubeVideo() {
-            // Get the YouTube video URL
-            const youtubeURL = "https://www.youtube.com/watch?v=rJYKapc1zK4&ab_channel=LNCapital";
-    
-            // Generate the embed URL
-            const embedURL = youtubeURL.replace("watch?v=", "embed/");
-    
-            // Create and set the src attribute of the iframe to the embed URL
-            const youtubeIframe = document.getElementById("youtubeIframe");
-            youtubeIframe.src = embedURL;
-    
-            // Show the iframe
-            youtubeIframe.style.display = "block";
+        let videoVisible = false; // Variable to track video visibility
+
+        function toggleVideo() {
+            // Get the video iframe element by its ID
+            const videoIframe = document.getElementById("videoIframe");
+
+            // Toggle video visibility
+            videoVisible = !videoVisible;
+
+            if (videoVisible) {
+                // Display the video iframe
+                videoIframe.style.display = "block";
+            } else {
+                // Hide the video iframe
+                videoIframe.style.display = "none";
+            }
         }
     </script>
 </body>
