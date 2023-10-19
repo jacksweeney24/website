@@ -43,21 +43,8 @@
             letter-spacing: 1px;
         }
 
-        nav {
-            /* Center the nav menu horizontally and vertically */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width:%;
-            max-width: 400px;
-            margin-top: 10px;
-            flex-wrap: wrap; /* Added flex-wrap to wrap menu items */
-            width: 100%;
-        }
-
         nav a {
-            font-size: 16px;
+            font-size: 20px;
             color: black;
             text-decoration: underline; /* Add underline style */
             white-space: nowrap; /* Prevent menu items from wrapping */
@@ -69,7 +56,7 @@
 
         /* Hide the video iframe by default */
         .video-container {
-            display: none;
+            display: none; 
             margin-top: 20px;
         }
 
@@ -99,7 +86,7 @@
     font-size: 18px; /* Font size */
     cursor: pointer; /* Cursor as pointer */
     border-radius: 12px; /* Rounded corners */
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     background-color: black; /* Background color */
     color: white; /* Text color */
     border: 2px solid black; /* Border color */
@@ -114,13 +101,13 @@
 }
 
 .tweet-table {
-    width: 100%;
-    table-layout: fixed;
+    width: 80%;  /* Set to 80% of the parent container */
+    margin: auto;  /* Center the table */
 }
 
 .tweet-table td {
-    width: 33.33%;
-    padding: 10px;
+    width: 100%;  /* Each tweet takes the full width of the table */
+    padding: 10px;  /* Add some padding around each tweet */
 }
 
 @media (max-width: 768px) {
@@ -130,12 +117,51 @@
     }
 }
 
+.social-icons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .copy-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.twitter-tweet {
+    max-width: 600px;  /* or whatever maximum width you want */
+    margin: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
     </style>
 </head>
 <body>
     <div class="header">
         <img id="imageSwitch" src="profpic2.jpg" class="header-logo">
-        <h1 class="welcome-text">Jack Sweeney // Content Specialist</h1>
+         <!-- Social Icons -->
+        <div class="social-icons">
+            <a href="https://twitter.com/jackfsweeney target="_blank">
+                <img src="x.jpeg" alt="Twitter" class="social-icon">
+            </a>
+            <a href="mailto:jack.sweeney@gmail.com">
+                <img src="email.jpg" alt="Email" class="social-icon">
+            </a>
+        </div>
+
+        <h1 class="welcome-text">Jack Sweeney | Content Specialist</h1>
         <nav id="navMenu">
             <div class="nav-top">
                 <a href="javascript:void(0);" onclick="toggleVisibility('.slide-container')">Social</a>
@@ -160,23 +186,18 @@
                 <!-- Container for the copy content -->
         <!-- Container for the copy content -->
 <div class="copy-container" style="display: none; margin-top: 20px;">
-    <table class="tweet-table">
-        <tr>
-            <td><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1685653991013638144"></a></blockquote></td>
-            <td><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1647605539486957575"></a></blockquote></td>
-            <td><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1667806389601796096"></a></blockquote></td>
-        </tr>
-        <tr>
-            <td><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1614308872973344768"></a></blockquote></td>
-            <td><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1602005600929546240"></a></blockquote></td>
-            <td><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1594408238539218956"></a></blockquote></td>
-        </tr>
-    </table>
+    <div class="twitter-tweet"><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1685653991013638144"></a></blockquote></div>
+    <div class="twitter-tweet"><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1589321548133203968"></a></blockquote></div>
+    <div class="twitter-tweet"><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1667806389601796096"></a></blockquote></div>
+    <div class="twitter-tweet"><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1614308872973344768"></a></blockquote></div>
+    <div class="twitter-tweet"><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1602005600929546240"></a></blockquote></div>
+    <div class="twitter-tweet"><blockquote class="twitter-tweet"><a href="https://twitter.com/ohskogstrom/status/1680185457307447299"></a></blockquote></div>
+    <div class="twitter-tweet"><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1647605539486957575"></a></blockquote></div>
+    <div class="twitter-tweet"><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1657780599547912193"></a></blockquote></div>
+    <div class="twitter-tweet"><blockquote class="twitter-tweet"><a href="https://twitter.com/ohskogstrom/status/1664659794626748416"></a></blockquote></div>
+    <div class="twitter-tweet"><blockquote class="twitter-tweet"><a href="https://twitter.com/messages/614615953-1451705776247029771"></a></blockquote></div>
+    <div class="twitter-tweet"><blockquote class="twitter-tweet"><a href="https://twitter.com/TorqLN/status/1605265299183472640"></a></blockquote></div>
 </div>
-
-
-                <!-- Button to show contact section -->
-        <button class="work-together-button" style="margin-top: 20px;" onclick="toggleContact()">Get in touch</button>
 
         <!-- Container for the contact section -->
         <div class="contact-container" style="display: none;">
@@ -185,6 +206,9 @@
             <p>jack.sweeney24@gmail.com</p>
             <p>Calendly Link</p>
         </div>
+
+                <!-- Button to show contact section -->
+        <button class="work-together-button" style="margin-top: 30px;" onclick="toggleContact()">Get in touch</button>
 
     </div>
 
@@ -206,9 +230,18 @@
     }
 
     function toggleContact() {
-        const contactElement = document.querySelector('.contact-container');
-        contactElement.style.display = (contactElement.style.display === 'none' || contactElement.style.display === '') ? 'block' : 'none';
-    }
+    // Hide other sections
+    const sections = ['.slide-container', '.video-container', '.copy-container'];
+    sections.forEach(section => {
+        const element = document.querySelector(section);
+        element.style.display = 'none';
+    });
+
+    // Toggle contact section
+    const contactElement = document.querySelector('.contact-container');
+    contactElement.style.display = (contactElement.style.display === 'none' || contactElement.style.display === '') ? 'block' : 'none';
+}
+
 </script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
