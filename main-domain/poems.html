@@ -10,14 +10,17 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         
         .content {
-            width: 80%;
-            max-width: 600px;
-            text-align: left;
-            margin: 20px auto; /* Added margin */
-            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            margin: 20px auto;
         }
         
         .back-link {
@@ -28,35 +31,41 @@
             text-decoration: none;
         }
 
-        .book-section {
+        .collection-section {
             text-align: center;
             padding: 20px;
         }
 
-        .book-image {
-            max-width: 100%;
+        .thumbnail {
+            width: 100%;
+            max-width: 500px; /* Increased maximum width */
             height: auto;
-            margin-bottom: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: 2px solid #000; /* Added border */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
+            border-radius: 10px; /* Optional: Rounded corners for a nicer look */
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
         }
 
         @media only screen and (max-width: 600px) {
-            .content {
-                width: 90%;
-            }
-
-            .book-section {
-                padding: 10px;
+            .thumbnail {
+                max-width: 90%; /* Ensure the image scales well on smaller screens */
             }
         }
     </style>
 </head>
 <body>
     <div class="content">
-<img src="poemforspring.png" alt="poem Image" class="book-image">
-    </div>
-    <div class="book-section">
-        <img src="split3.png" alt="Split Image" class="book-image">
-        <p>first book coming soon :)</p>
+        <h1>Split (and other poems) 2019-2023</h1>
+        <div class="collection-section">
+            <a href="split.html">
+                <img src="split.png" alt="Split Thumbnail" class="thumbnail">
+            </a>
+        </div>
     </div>
     <a href="index.html" class="back-link">Back to home</a>
 </body>
