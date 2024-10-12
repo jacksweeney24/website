@@ -9,13 +9,13 @@
             color: black;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: Helvetica, Arial, sans-serif;
+            text-align: center;
         }
         
         .content {
             width: 80%;
             max-width: 600px;
-            text-align: left;
             margin: 20px auto;
             padding: 20px;
         }
@@ -28,12 +28,21 @@
             text-decoration: none;
         }
 
-        .poems {
-            margin-top: 20px;
+        .navigation-buttons {
+            margin-bottom: 20px;
         }
 
         .poem {
-            margin-bottom: 40px; /* Increased margin-bottom for more gap */
+            display: none;
+            text-align: left;
+        }
+
+        .poem.active {
+            display: block;
+        }
+
+        h1 {
+            margin-bottom: 20px;
         }
 
         @media only screen and (max-width: 600px) {
@@ -45,12 +54,17 @@
 </head>
 <body>
     <div class="content">
+        <h1>Split</h1>
+        <div class="navigation-buttons">
+            <button id="prevPoem">Previous</button>
+            <button id="nextPoem">Next</button>
+        </div>
         <div class="poems">
             <div class="poem">
                 <h3>Cychotic</h3>
                 <p>
                     I am teraflops and petaflops of x86 64 bit Pure & Chemically Refined nanometer dielines
-                    my mind’s dry like a transistor in a vat, a dielectric tube filled with glucose cubes
+                    my mind's dry like a transistor in a vat, a dielectric tube filled with glucose cubes
                     and radionically charged biophotons which I extract consciousness from
                 </p>
             </div>
@@ -61,13 +75,13 @@
                     flows through it like mucus, fluid<br>
                     filled with trembling bellflowers, paper<br>
                     windmills made of blue card stock<br>
-                    that rotate slowly in the breeze.<br>
+                    rotate slowly in the breeze.<br>
                     refractions of rainbows and cerulean<br>
                     glaciers erode valleys in the grass,<br>
-                    dolphins that porpoise<br>
+                    dolphins porpoise<br>
                     and sing pure tones in their language,<br>
-                    chandeliers multiplying out in icy fractals,<br>
-                    sparkles turning into stars, they stretch<br>
+                    chandeliers multiply out in icy fractals,<br>
+                    sparkles turn into stars, they stretch<br>
                     light years across her belly, body<br>
                     wearing cute sticky panties<br>
                     soaked in arizona iced tea
@@ -99,7 +113,7 @@
                     
                     death, despair, and violence,<br>
                     cyberpsychotic outbursts of racially motivated microaggressions,<br>
-                    deranged & highly medicated socialist plots to cut boys’ dicks off,<br>
+                    deranged & highly medicated socialist plots to cut boys' dicks off,<br>
                     amphetamine fueled tiktok doom scrolls,<br><br>
                     
                     racist youth with foul mouths & starving bellies,<br>
@@ -109,5 +123,32 @@
         </div>
     </div>
     <a href="poems.html" class="back-link">Back to collections</a>
+    <script>
+        const poems = document.querySelectorAll('.poem');
+        let currentPoemIndex = 0;
+
+        function showPoem(index) {
+            poems.forEach((poem, i) => {
+                if (i === index) {
+                    poem.classList.add('active');
+                } else {
+                    poem.classList.remove('active');
+                }
+            });
+        }
+
+        document.getElementById('prevPoem').addEventListener('click', () => {
+            currentPoemIndex = (currentPoemIndex - 1 + poems.length) % poems.length;
+            showPoem(currentPoemIndex);
+        });
+
+        document.getElementById('nextPoem').addEventListener('click', () => {
+            currentPoemIndex = (currentPoemIndex + 1) % poems.length;
+            showPoem(currentPoemIndex);
+        });
+
+        // Show the first poem initially
+        showPoem(currentPoemIndex);
+    </script>
 </body>
 </html>

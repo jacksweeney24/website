@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Podcast Appearances</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        .content {
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+            margin-top: 20px;
+        }
+        
+        iframe {
+            max-width: 100%;
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        
+        @media only screen and (max-width: 600px) {
+            .content {
+                width: 90%;
+            }
+        }
+
+        .back-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>Tommy's Writing Show, August 2nd 2024</h2>
+        <p>This podcast is available on Twitter/X. <a href="https://x.com/tommyswriting/status/1819550525303525528" target="_blank">Click here to listen</a>.</p>
+
+        <h2>Jack Moses Podcast, March 28th 2024</h2>
+        <iframe src="https://www.youtube.com/embed/xYFYVVrW82o" frameborder="0" allowfullscreen></iframe>
+        
+        <h2>Little by Little, February 26th 2024</h2>
+        <iframe src="https://www.youtube.com/embed/mdBjjR2L9Lw" frameborder="0" allowfullscreen></iframe>
+        
+        <h2>Value Stack, April 18th 2023</h2>
+        <iframe src="https://www.youtube.com/embed/HQ7fyngBR7A" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <a href="index.html" class="back-link">Back to home</a>
+</body>
+</html>
