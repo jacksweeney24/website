@@ -99,11 +99,11 @@
         }
 
         .subscribe-container {
-            display: flex;
+            display: none;
             flex-direction: column;
             align-items: center;
             width: 100%;
-            max-width: 280px;  /* Match nav width */
+            max-width: 280px;
             margin: 25px auto;
             gap: 10px;
             padding: 0 20px;
@@ -206,27 +206,27 @@
     let image = document.getElementById("imageSwitch");
 
     if (visited) {
-        // If 'visited' is set, hide the button and display the nav menu
         initialButton.style.display = "none";
         navMenu.style.display = "flex";
+        document.querySelector('.subscribe-container').style.display = "flex";
     } else {
-        // If 'visited' is not set, display the button and hide the nav menu
         initialButton.style.display = "block";
         navMenu.style.display = "none";
+        document.querySelector('.subscribe-container').style.display = "none";
     }
 
     function toggleAudioImage() {
         if(audio.paused){
             audio.play();
-            image.src = imgGif.src; // Use the preloaded GIF
+            image.src = imgGif.src;
             initialButton.style.display = "none";
 
-            // Delay showing the nav menu by 500 milliseconds (half a second)
+            // Delay showing both nav menu and subscribe form
             setTimeout(function() {
-                navMenu.style.display = "flex"; // Show the nav menu
+                navMenu.style.display = "flex";
+                document.querySelector('.subscribe-container').style.display = "flex";
             }, 500);
 
-            // Set 'visited' in localStorage
             localStorage.setItem('visited', true);
         }
         else{
