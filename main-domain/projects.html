@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Projects</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            padding-bottom: 60px;
+        }
+
+        .welcome-text {
+            font-size: 24px;
+            margin-bottom: 40px;
+            margin-top: 40px;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 800px;
+            width: 90%;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            text-align: center;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .visit-button {
+            padding: 8px 20px;
+            background-color: black;
+            color: white;
+            border: 1.5px solid black;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .visit-button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: black;
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            .welcome-text {
+                font-size: 20px;
+                margin-top: 60px;
+            }
+            
+            .project-card {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+
+            .projects-container {
+                gap: 20px;
+                padding: 0 10px;
+            }
+
+            .header {
+                padding: 10px;
+                padding-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">Back to home</a>
+    <div class="header">
+        <h1 class="welcome-text">web projects</h1>
+        <div class="projects-container">
+            <div class="project-card">
+                <img src="assets/images/transcendence.jpg" alt="Transcendence" class="project-image">
+                <div class="project-title">Transcendence</div>
+                <p class="project-description">A modern web platform for spiritual growth and consciousness exploration.</p>
+                <a href="https://transcendence-ten.vercel.app/" target="_blank" class="visit-button">Visit Site</a>
+            </div>
+
+            <div class="project-card">
+                <img src="assets/images/modernman.jpg" alt="Modern Man Rebirth" class="project-image">
+                <div class="project-title">Modern Man Rebirth</div>
+                <p class="project-description">Personal website for a life coach and his cohort-based program.</p>
+                <a href="https://modernmanrebirth.com/" target="_blank" class="visit-button">Visit Site</a>
+            </div>
+
+            <div class="project-card">
+                <img src="assets/images/alignment.jpg" alt="Alignment Academy" class="project-image">
+                <div class="project-title">Alignment Academy</div>
+                <p class="project-description">Educational platform focusing on personal alignment and growth.</p>
+                <a href="https://alignmentacademy.co/" target="_blank" class="visit-button">Visit Site</a>
+            </div>
+
+            <div class="project-card">
+                <img src="assets/images/satva.jpg" alt="Satva Vision" class="project-image">
+                <div class="project-title">Satva</div>
+                <p class="project-description">AI goal setting and visualization tool.</p>
+                <a href="https://www.satva.vision/" target="_blank" class="visit-button">Visit Site</a>
+            </div>
+
+            <div class="project-card">
+                <img src="assets/images/a21.jpg" alt="A21 Digital" class="project-image">
+                <div class="project-title">A21 Digital</div>
+                <p class="project-description">Digital agency specializing in organic content creation and brand storytelling.</p>
+                <a href="https://www.a21.digital/" target="_blank" class="visit-button">Visit Site</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
